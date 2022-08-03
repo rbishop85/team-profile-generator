@@ -9,6 +9,17 @@ const Manager = require("./lib/Manager");
 
 const employeesArray = [];
 
+const questManager = [
+
+];
+
+const questEngineer = [
+
+];
+
+const questIntern = [
+
+];
 // separate everything into reusable functions so you can easily cycle back to different functions
 
     // gather manager data
