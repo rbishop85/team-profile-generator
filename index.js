@@ -12,42 +12,96 @@ const employeesArray = [];
 const questionsManager = [
     {
         type: "input",
-        message: "What is your team manager's name?",
+        message: "What is the team manager's name?",
         name: "name",
         prefix: "-",
         validate: Boolean
     },
     {
         type: "input",
-        message: "What is your team manager's employee ID?",
+        message: "What is the team manager's employee ID?",
         name: "empID",
         prefix: "-",
         validate: Boolean
     },
     {
         type: "input",
-        message: "What is your team manager's email address?",
+        message: "What is the team manager's email address?",
         name: "email",
         prefix: "-",
         validate: Boolean
     },
     {
         type: "input",
-        message: "What is your team manager's office number?",
+        message: "What is the team manager's office number?",
         name: "name",
         prefix: "-",
         validate: Boolean
     }
-
 ];
 
 const questionsEngineer = [
-
+    {
+        type: "input",
+        message: "What is the engineer's name?",
+        name: "name",
+        prefix: "-",
+        validate: Boolean
+    },
+    {
+        type: "input",
+        message: "What is the engineer's employee ID?",
+        name: "empID",
+        prefix: "-",
+        validate: Boolean
+    },
+    {
+        type: "input",
+        message: "What is the engineer's email address?",
+        name: "email",
+        prefix: "-",
+        validate: Boolean
+    },
+    {
+        type: "input",
+        message: "What is the engineer's GitHub username?",
+        name: "github",
+        prefix: "-",
+        validate: Boolean
+    }
 ];
 
 const questionsIntern = [
-
+    {
+        type: "input",
+        message: "What is the intern's name?",
+        name: "name",
+        prefix: "-",
+        validate: Boolean
+    },
+    {
+        type: "input",
+        message: "What is the intern's employee ID?",
+        name: "empID",
+        prefix: "-",
+        validate: Boolean
+    },
+    {
+        type: "input",
+        message: "What is the intern's email address?",
+        name: "email",
+        prefix: "-",
+        validate: Boolean
+    },
+    {
+        type: "input",
+        message: "What school is the intern attending?",
+        name: "school",
+        prefix: "-",
+        validate: Boolean
+    }
 ];
+
 // separate everything into reusable functions so you can easily cycle back to different functions
 
     // gather manager data
