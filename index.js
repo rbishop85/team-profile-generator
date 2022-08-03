@@ -105,10 +105,20 @@ const questionsIntern = [
 // separate everything into reusable functions so you can easily cycle back to different functions
 
     // gather manager data
+function generateManager() {
+    // inquirer.prompt()
+    inquirer.prompt(questionsManager)
+    .then((response) => {
+    console.log(response);
 
-        // inquirer.prompt()
+    // then Build a manager object and push to array list
 
-        // then Build a manager object and push to array list
+    })
+}
+
+        
+
+        
 
     // Gather engineer data
 
