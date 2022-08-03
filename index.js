@@ -9,15 +9,43 @@ const Manager = require("./lib/Manager");
 
 const employeesArray = [];
 
-const questManager = [
+const questionsManager = [
+    {
+        type: "input",
+        message: "What is your team manager's name?",
+        name: "name",
+        prefix: "-",
+        validate: Boolean
+    },
+    {
+        type: "input",
+        message: "What is your team manager's employee ID?",
+        name: "empID",
+        prefix: "-",
+        validate: Boolean
+    },
+    {
+        type: "input",
+        message: "What is your team manager's email address?",
+        name: "email",
+        prefix: "-",
+        validate: Boolean
+    },
+    {
+        type: "input",
+        message: "What is your team manager's office number?",
+        name: "name",
+        prefix: "-",
+        validate: Boolean
+    }
 
 ];
 
-const questEngineer = [
+const questionsEngineer = [
 
 ];
 
-const questIntern = [
+const questionsIntern = [
 
 ];
 // separate everything into reusable functions so you can easily cycle back to different functions
