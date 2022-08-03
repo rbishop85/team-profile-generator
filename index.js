@@ -34,7 +34,7 @@ const questionsManager = [
     {
         type: "input",
         message: "What is the team manager's office number?",
-        name: "name",
+        name: "office",
         prefix: "-",
         validate: Boolean
     }
