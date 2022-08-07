@@ -110,10 +110,11 @@ function generateManager() {
     inquirer.prompt(questionsManager)
     .then((response) => {
     console.log(response);
-
     // then build a manager object and push to array list
+    const newManager = new Employee(response);
+    console.log(newManager);
 
-    teamMemberChoice();
+    // teamMemberChoice();
 
     })
 }
