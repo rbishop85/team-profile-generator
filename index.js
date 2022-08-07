@@ -2,7 +2,7 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 
 const pageTemplate = require("./src/page-template");
-const Employee = require("./lib/Employee");
+
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
@@ -36,7 +36,7 @@ const baseQuestions = [
     // gather manager data
 function generateManager() {
     const employeeRole = "team manager"
-    const questionsManager = baseQuestions;
+    const questionsManager = JSON.parse(JSON.stringify(baseQuestions));
 
      for (let i = 0; i < questionsManager.length; i++) {
         const a = questionsManager[i].message;
@@ -69,7 +69,7 @@ function generateManager() {
     // Gather engineer data
 function generateEngineer() {
     const employeeRole = "engineer"
-    const questionsEngineer = baseQuestions;
+    const questionsEngineer = JSON.parse(JSON.stringify(baseQuestions));
 
      for (let i = 0; i < questionsEngineer.length; i++) {
         const a = questionsEngineer[i].message;
@@ -88,9 +88,12 @@ function generateEngineer() {
 
     inquirer.prompt(questionsEngineer)
     .then((response) => {
-    console.log(response);
 
-    teamMemberChoice();
+        const newEngineer = new Engineer(response);
+        employeesList.push(newEngineer);
+        console.log(employeesList);
+
+        teamMemberChoice();
 
     })
 }
@@ -98,7 +101,7 @@ function generateEngineer() {
     // gather intern data
 function generateIntern() {
     const employeeRole = "intern"
-    const questionsIntern = baseQuestions;
+    const questionsIntern = JSON.parse(JSON.stringify(baseQuestions));
 
      for (let i = 0; i < questionsIntern.length; i++) {
         const a = questionsIntern[i].message;
@@ -117,11 +120,12 @@ function generateIntern() {
 
     inquirer.prompt(questionsIntern)
     .then((response) => {
-    console.log(response);
 
-    // then build an intern object and push to array list
+        const newIntern = new Intern(response);
+        employeesList.push(newIntern);
+        console.log(employeesList);
 
-    teamMemberChoice();
+        teamMemberChoice();
 
     })
 }
