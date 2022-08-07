@@ -9,120 +9,58 @@ const Manager = require("./lib/Manager");
 
 const employeesList = [];
 
-const questionsManager = [
+const baseQuestions = [
     {
         type: "input",
-        message: "What is the team manager's name?",
+        message: `What is the 's name?`,
         name: "name",
         prefix: "-",
         validate: Boolean
     },
     {
         type: "input",
-        message: "What is the team manager's employee ID?",
+        message: `What is the 's employee ID?`,
         name: "empID",
         prefix: "-",
         validate: Boolean
     },
     {
         type: "input",
-        message: "What is the team manager's email address?",
+        message: `What is the 's email address?`,
         name: "email",
-        prefix: "-",
-        validate: Boolean
-    },
-    {
-        type: "input",
-        message: "What is the team manager's office number?",
-        name: "office",
         prefix: "-",
         validate: Boolean
     }
 ];
-
-const questionsEngineer = [
-    {
-        type: "input",
-        message: "What is the engineer's name?",
-        name: "name",
-        prefix: "-",
-        validate: Boolean
-    },
-    {
-        type: "input",
-        message: "What is the engineer's employee ID?",
-        name: "empID",
-        prefix: "-",
-        validate: Boolean
-    },
-    {
-        type: "input",
-        message: "What is the engineer's email address?",
-        name: "email",
-        prefix: "-",
-        validate: Boolean
-    },
-    {
-        type: "input",
-        message: "What is the engineer's GitHub username?",
-        name: "github",
-        prefix: "-",
-        validate: Boolean
-    }
-];
-
-const questionsIntern = [
-    {
-        type: "input",
-        message: "What is the intern's name?",
-        name: "name",
-        prefix: "-",
-        validate: Boolean
-    },
-    {
-        type: "input",
-        message: "What is the intern's employee ID?",
-        name: "empID",
-        prefix: "-",
-        validate: Boolean
-    },
-    {
-        type: "input",
-        message: "What is the intern's email address?",
-        name: "email",
-        prefix: "-",
-        validate: Boolean
-    },
-    {
-        type: "input",
-        message: "What school is the intern attending?",
-        name: "school",
-        prefix: "-",
-        validate: Boolean
-    }
-];
-
-// separate everything into reusable functions so you can easily cycle back to different functions
 
     // gather manager data
 function generateManager() {
-    // inquirer.prompt()
+    const employeeRole = "team manager"
+    const questionsManager = baseQuestions;
+
+     for (let i = 0; i < questionsManager.length; i++) {
+        const a = questionsManager[i].message;
+        questionsManager[i].message = [a.slice(0, 12), employeeRole, a.slice(12)].join('');
+     }
+
+    questionsManager.push(
+        {
+            type: "input",
+            message: "What is the team manager's office number?",
+            name: "office",
+            prefix: "-",
+            validate: Boolean
+        }
+    );
+
     inquirer.prompt(questionsManager)
     .then((response) => {
-    // console.log(response);
-    // then build a manager object and push to array list
-    const newManager = new Manager(response);
-    // console.log(newManager);
-    console.log(newManager.getName());
-    console.log(newManager.getId());
-    console.log(newManager.getEmail());
-    console.log(newManager.getOfficeNumber());
-    console.log(newManager.getRole());
 
-    employeesList.push(newManager);
-    console.log(employeesList);
+        const newManager = new Manager(response);
+        employeesList.push(newManager);
+        console.log(employeesList);
 
-    // teamMemberChoice();
+        teamMemberChoice();
 
     })
 }
@@ -130,12 +68,27 @@ function generateManager() {
 
     // Gather engineer data
 function generateEngineer() {
-    // inquirer.prompt()
+    const employeeRole = "engineer"
+    const questionsEngineer = baseQuestions;
+
+     for (let i = 0; i < questionsEngineer.length; i++) {
+        const a = questionsEngineer[i].message;
+        questionsEngineer[i].message = [a.slice(0, 12), employeeRole, a.slice(12)].join('');
+     }
+
+    questionsEngineer.push(
+        {
+            type: "input",
+            message: "What is the engineer's GitHub username?",
+            name: "github",
+            prefix: "-",
+            validate: Boolean
+        }
+    );
+
     inquirer.prompt(questionsEngineer)
     .then((response) => {
     console.log(response);
-
-    // then build an engineer object and push to array list
 
     teamMemberChoice();
 
@@ -144,7 +97,24 @@ function generateEngineer() {
 
     // gather intern data
 function generateIntern() {
-    // inquirer.prompt()
+    const employeeRole = "intern"
+    const questionsIntern = baseQuestions;
+
+     for (let i = 0; i < questionsIntern.length; i++) {
+        const a = questionsIntern[i].message;
+        questionsIntern[i].message = [a.slice(0, 12), employeeRole, a.slice(12)].join('');
+     }
+
+    questionsIntern.push(
+        {
+            type: "input",
+            message: "What school is the intern attending?",
+            name: "school",
+            prefix: "-",
+            validate: Boolean
+        }
+    );
+
     inquirer.prompt(questionsIntern)
     .then((response) => {
     console.log(response);
