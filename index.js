@@ -7,7 +7,7 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
 
-const employeesArray = [];
+const employeesList = [];
 
 const questionsManager = [
     {
@@ -118,6 +118,9 @@ function generateManager() {
     console.log(newManager.getEmail());
     console.log(newManager.getOfficeNumber());
     console.log(newManager.getRole());
+
+    employeesList.push(newManager);
+    console.log(employeesList);
 
     // teamMemberChoice();
 
