@@ -150,13 +150,15 @@ function teamMemberChoice() {
             generateIntern();
         } else {
             // Take gathered data and generate html page
-            console.log(generateHTML(employeesList));
+            const htmlContent = generateHTML(employeesList);
+            writeToFile("./dist/team-profile.html", htmlContent);
         }
     })
 }
 
-function writeToFile() {
-
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, (err) =>
+    err ? console.error(err) : console.log('Team profile HTML page generated in "dist" folder!'));
 }
 
 function init() {
