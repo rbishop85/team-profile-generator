@@ -2,7 +2,7 @@ let roleUniqueData = (employee) => {
     if(employee.getRole() === "Manager") {
         return `Office #: ${employee.officeNumber}`
     } else if(employee.getRole() === "Engineer") {
-        return `Github: <a href="https://github.com/${employee.github}">${employee.github}</a>`
+        return `Github: <a href="https://github.com/${employee.github}" target="_blank">${employee.github}</a>`
     } else if(employee.getRole() === "Intern") {
         return `School: ${employee.school}`
     }
@@ -18,8 +18,8 @@ let employeeCards = (employees) => {
                 <p class="card-text fs-3"><i class="fa-solid ${employee.getIcon()} fa-beat text-dark"></i> ${employee.getRole()}</p>
             </div>
             <ul class="list-group bg-secondary py-4 px-3 rounded-0" style="height: 15rem">
-                <li class="list-group-item rounded-top border-dark">ID: ${employee.id}</li>
-                <li class="list-group-item border-dark">Email: ${employee.email}</li>
+                <li class="list-group-item rounded-top border-dark">Employee ID: ${employee.id}</li>
+                <li class="list-group-item border-dark">Email: <a href="mailto: ${employee.email}">${employee.email}</a></li>
                 <li class="list-group-item border-dark rounded-bottom">${roleUniqueData(employee)}</li>
             </ul>
         </div>`);
