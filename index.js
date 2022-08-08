@@ -1,7 +1,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 
-const pageTemplate = require("./src/page-template");
+const generateHTML = require("./src/page-template");
 
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
@@ -58,7 +58,6 @@ function generateManager() {
 
         const newManager = new Manager(response);
         employeesList.push(newManager);
-        console.log(employeesList);
 
         teamMemberChoice();
 
@@ -91,7 +90,6 @@ function generateEngineer() {
 
         const newEngineer = new Engineer(response);
         employeesList.push(newEngineer);
-        console.log(employeesList);
 
         teamMemberChoice();
 
@@ -123,7 +121,6 @@ function generateIntern() {
 
         const newIntern = new Intern(response);
         employeesList.push(newIntern);
-        console.log(employeesList);
 
         teamMemberChoice();
 
@@ -134,6 +131,7 @@ function generateIntern() {
     // Ask for which team member they want to add or are they done (ends app and generates file when done)
 function teamMemberChoice() {
     // Inquirer.prompt()
+    console.log("");
     inquirer.prompt([
         {
         type: 'list',
@@ -144,7 +142,7 @@ function teamMemberChoice() {
         }
     ])
     .then((response) => {
-        console.log(response);
+        console.log("");
         // Then decide which function to call
         if(response.choice === "Engineer") {
             generateEngineer();
@@ -152,11 +150,17 @@ function teamMemberChoice() {
             generateIntern();
         } else {
             // Take gathered data and generate html page
+            console.log(generateHTML(employeesList));
         }
     })
 }
 
+function writeToFile() {
+
+}
+
 function init() {
+    console.log("");
     generateManager()
 }
 
