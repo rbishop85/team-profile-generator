@@ -1,3 +1,4 @@
+// Function to generate the unique final information row for each employee type based on the employee data being used
 let roleUniqueData = (employee) => {
     if(employee.getRole() === "Manager") {
         return `Office #: ${employee.officeNumber}`
@@ -8,8 +9,11 @@ let roleUniqueData = (employee) => {
     }
 }
 
+// Function to create the individual employee cards
 let employeeCards = (employees) => {
+    // Empty string that will ultimately include the html code for all employee cards
     let htmlString = "";
+    // Loop through the array of employee objects and for each one generate the html code for their card object, then add that code to the htmlString variable for an ever growing string value
     employees.forEach((employee) => {
         htmlString = htmlString.concat(`
         <div class="card my-5 mx-4 border border-dark border-3" style="width: 18rem; height: 23rem">
@@ -24,9 +28,11 @@ let employeeCards = (employees) => {
             </ul>
         </div>`);
     })
+    // Return the final complete string value
     return htmlString
 }
 
+// Main html generator function, calls for the employeeCards function to generate the individual cards for each employee
 let generateHTML = (data) => {
     return `
     <!DOCTYPE html>
@@ -62,4 +68,5 @@ let generateHTML = (data) => {
     </html>`
 }
 
+// Exports the generateHTML function to allow data to be sent to it
 module.exports = generateHTML;
