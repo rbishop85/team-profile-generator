@@ -31,7 +31,9 @@ This project is intended as a homework assignment for class.  Questions, comment
 
 > Video demoing team profile generator in action.
 
-team-profile-demo.mp4
+https://user-images.githubusercontent.com/103389448/183340388-24f98da8-8287-435c-9016-d295842e85bd.mp4
+
+
 
 
 ---
