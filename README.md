@@ -30,7 +30,8 @@ This project is intended as a homework assignment for class.  Questions, comment
 ## Demo:
 
 > Video demoing team profile generator in action.
-./assets/team-pfofile-demo.mp4
+
+team-profile-demo.mp4
 
 
 ---
